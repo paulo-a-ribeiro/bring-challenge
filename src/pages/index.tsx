@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { GetServerSideProps } from 'next'
 import CityResponse from '@/entities/CityResponse'
+import Text from '@/components/Text'
 
 interface Props {
   cities: CityResponse[]
@@ -18,6 +19,7 @@ export default function Home(props: Props) {
   const { cities } = props
   return (
     <div>
+      <Text>hello</Text>
       {cities.map((city) => {
         return (
           <div key={city.name}>
