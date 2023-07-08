@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app'
 import GlobalStyles from '@/components/GlobalStyle'
 import 'react-multi-carousel/lib/styles.css'
-import { useRouter } from 'next/router'
 import { AnimatePresence } from 'framer-motion'
 
 export default function MyApp({ Component, pageProps }: AppProps) {

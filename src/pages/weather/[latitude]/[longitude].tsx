@@ -9,7 +9,6 @@ import Transition from '@/components/Transition'
 interface Props {
   details: HourlyResponse
 }
-type IndexPageRef = React.ForwardedRef<HTMLDivElement>
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { BASE_URL } = process.env
@@ -22,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   return { props: { details } }
 }
-export default function Detail(props: Props, ref: IndexPageRef) {
+export default function Detail(props: Props) {
   return (
     <WeatherLayout>
       <Transition>
