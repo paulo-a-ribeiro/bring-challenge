@@ -4,7 +4,6 @@ import HourlyResponse from '@/entities/HourlyResponse'
 import HourlyCardList from '@/components/hourlyCardList/HourlyCardList'
 import { Layout } from '@/pages/weather/[latitude]/Style'
 import DetailHeader from '@/components/detailHeader/DetailHeader'
-import { useRouter } from 'next/router'
 
 interface Props {
   details: HourlyResponse
