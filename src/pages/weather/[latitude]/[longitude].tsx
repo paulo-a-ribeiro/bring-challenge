@@ -22,8 +22,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   return { props: { details } }
 }
 export default function Detail(props: Props) {
-  const router = useRouter()
-
   return (
     <WeatherLayout>
       <Layout>

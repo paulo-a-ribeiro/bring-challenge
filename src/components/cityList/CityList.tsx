@@ -23,10 +23,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json())
 export default function CityList() {
   const { setSelectedCity, selectedCity } = useContext(CityContext)
   const pathname = usePathname()
-  const { data, error, isLoading } = useSWR<CityResponse[]>(
-    '/api/cities',
-    fetcher,
-  )
+  const { data, isLoading } = useSWR<CityResponse[]>('/api/cities', fetcher)
 
   useEffect(() => {
     const city = data?.find((item) => {
