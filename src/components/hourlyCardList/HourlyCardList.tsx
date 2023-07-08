@@ -2,6 +2,8 @@ import Image from 'next/image'
 import HourlyWeather from '@/entities/HourlyWeather'
 import { Card, Hour, Temperature } from '@/components/hourlyCardList/Styles'
 import Carousel from 'react-multi-carousel'
+import { useContext } from 'react'
+import { CityContext } from '@/context/CityContext'
 
 interface HourlyCardProps {
   hours: HourlyWeather[]
@@ -27,10 +29,13 @@ const responsive = {
   },
 }
 export default function HourlyCardList(props: HourlyCardProps) {
+  const { selectedCity } = useContext(CityContext)
+
+  if (!selectedCity) return <></>
+
   const { hours } = props
 
   return (
-    // <List>
     <Carousel responsive={responsive}>
       {hours.map((hour, index) => {
         const { weather, dt, temp } = hour
@@ -49,6 +54,5 @@ export default function HourlyCardList(props: HourlyCardProps) {
         )
       })}
     </Carousel>
-    // </List>
   )
 }

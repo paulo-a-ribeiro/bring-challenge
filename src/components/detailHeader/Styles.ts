@@ -48,4 +48,5 @@ export const Description = styled.span`
   font-size: 1.6rem;
   text-transform: capitalize;
   font-weight: 400;
+  margin-top: 0.4rem;
 `

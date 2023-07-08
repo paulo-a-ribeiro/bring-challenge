@@ -1,11 +1,5 @@
 import styled from 'styled-components'
 
-export const List = styled.ul`
-  display: flex;
-  gap: 1.4rem;
-  width: 100%;
-  overflow-x: scroll;
-`
 export const Card = styled.div`
   display: flex;
   flex-direction: column;

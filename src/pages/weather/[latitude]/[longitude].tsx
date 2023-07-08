@@ -4,10 +4,12 @@ import HourlyResponse from '@/entities/HourlyResponse'
 import HourlyCardList from '@/components/hourlyCardList/HourlyCardList'
 import { Layout } from '@/pages/weather/[latitude]/Style'
 import DetailHeader from '@/components/detailHeader/DetailHeader'
+import Transition from '@/components/Transition'
 
 interface Props {
   details: HourlyResponse
 }
+type IndexPageRef = React.ForwardedRef<HTMLDivElement>
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const { BASE_URL } = process.env
@@ -20,13 +22,15 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   return { props: { details } }
 }
-export default function Detail(props: Props) {
+export default function Detail(props: Props, ref: IndexPageRef) {
   return (
     <WeatherLayout>
-      <Layout>
-        <DetailHeader />
-        <HourlyCardList hours={props.details.hourly} />
-      </Layout>
+      <Transition>
+        <Layout>
+          <DetailHeader />
+          <HourlyCardList hours={props.details.hourly} />
+        </Layout>
+      </Transition>
     </WeatherLayout>
   )
 }
