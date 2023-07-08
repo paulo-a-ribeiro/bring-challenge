@@ -9,11 +9,15 @@ export default async function handler(
     const { API_ROUTE, API_KEY } = process.env
 
     const citiesResponse = await Promise.all([
-      fetch(`${API_ROUTE}/weather?q=Braga,pt&appid=${API_KEY}`),
-      fetch(`${API_ROUTE}/weather?q=London,uk&appid=${API_KEY}`),
-      fetch(`${API_ROUTE}/weather?q=Madrid,es&appid=${API_KEY}`),
-      fetch(`${API_ROUTE}/weather?q=Neuchatel,ch&appid=${API_KEY}`),
-      fetch(`${API_ROUTE}/weather?q=Amsterdam,nl&appid=${API_KEY}`),
+      fetch(`${API_ROUTE}/weather?q=Braga,pt&units=metric&appid=${API_KEY}`),
+      fetch(`${API_ROUTE}/weather?q=London,uk&units=metric&appid=${API_KEY}`),
+      fetch(`${API_ROUTE}/weather?q=Madrid,es&units=metric&appid=${API_KEY}`),
+      fetch(
+        `${API_ROUTE}/weather?q=Neuchatel,ch&units=metric&appid=${API_KEY}`,
+      ),
+      fetch(
+        `${API_ROUTE}/weather?q=Amsterdam,nl&units=metric&appid=${API_KEY}`,
+      ),
     ])
 
     const cities: CityResponse[] = await Promise.all(
